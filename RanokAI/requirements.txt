@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pyserial
+pyttsx3
+openai
+sounddevice
+scipy

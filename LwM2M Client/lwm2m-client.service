@@ -1,0 +1,18 @@
+[Unit]
+Description=LwM2M Python Client Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=exec
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/Desktop/Python_Proj/LwM2M Client
+ExecStart=/usr/bin/python3 main.py
+Restart=on-failure
+RestartSec=5
+KillSignal=SIGTERM
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

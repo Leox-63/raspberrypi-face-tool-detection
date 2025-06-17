@@ -1,0 +1,21 @@
+# Computer Vision and Camera
+opencv-python==4.8.1.78
+picamera2==0.3.12
+mediapipe==0.10.7
+
+# Machine Learning
+tflite-runtime==2.13.0
+numpy==1.24.3
+
+# Data handling
+pandas==2.0.3
+
+# LWM2M Client dependencies
+aiocoap==0.4.5
+cbor2==5.4.6
+requests==2.31.0
+
+# Development and testing
+pytest==7.4.0
+black==23.7.0
+flake8==6.0.0

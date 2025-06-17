@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+captured_image.jpg
+*.jpg
+*.png
+*.jpeg
+
+# YOLOv5 (too large)
+yolov5/runs/
+yolov5/datasets/
+yolov5/*.pt
+
+# Models
+*.tflite
+models/
+
+# Logs
+*.log
+logs/
