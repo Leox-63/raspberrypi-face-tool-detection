@@ -15,6 +15,16 @@ aiocoap==0.4.5
 cbor2==5.4.6
 requests==2.31.0
 
+# RanokAI dependencies
+flask==2.3.2
+pyttsx3==2.90
+SpeechRecognition==3.10.0
+pyaudio==0.2.11
+openai-whisper==20230918
+
+# Communication
+pyserial==3.5
+
 # Development and testing
 pytest==7.4.0
 black==23.7.0

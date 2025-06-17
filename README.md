@@ -1,24 +1,35 @@
 # Raspberry Pi Face and Tool Detection System
 
-A computer vision system for Raspberry Pi that detects faces and tools using MediaPipe and machine learning, with gesture-based triggering for optimized performance.
+Un sistema completo de visión por computadora para Raspberry Pi que detecta rostros y herramientas usando MediaPipe y machine learning, con activación por gestos para rendimiento optimizado.
 
-## Features
+## Características
 
-- **Face Detection**: Real-time face detection using MediaPipe
-- **Tool Detection**: Custom tool recognition system
-- **Gesture Triggering**: Only runs detection when hand shows "grabbing" gesture
-- **CSV Logging**: Automatic logging of detection events with timestamps
-- **Optimized Performance**: Designed specifically for Raspberry Pi hardware
+- **Detección de Rostros**: Detección en tiempo real usando MediaPipe
+- **Detección de Herramientas**: Sistema de reconocimiento personalizado de herramientas
+- **Activación por Gestos**: Solo ejecuta detección cuando la mano muestra gesto de "agarrar"
+- **Logging CSV**: Registro automático de eventos de detección con timestamps
+- **Cliente LwM2M**: Cliente Python completo que reemplaza implementación Java Leshan
+- **Sistema RanokAI**: API server, control Nextion, TTS y reconocimiento de voz
+- **Rendimiento Optimizado**: Diseñado específicamente para hardware Raspberry Pi
 
-## Project Structure
+## Estructura del Proyecto
 
 ```
-├── Rostro_Herramientas/     # Main face and tool detection module
-├── LwM2M Client/           # LWM2M client implementation
-├── RanokAI/               # AI-related modules
-├── yolov5/                # YOLOv5 integration (deprecated due to performance)
-├── detecciones.csv        # Detection event logs
-└── requirements.txt       # Python dependencies
+├── Rostro_Herramientas/     # Módulo principal de detección de rostros y herramientas
+│   └── main.py             # Script principal de detección con MediaPipe
+├── LwM2M Client/           # Cliente LwM2M Python completo
+│   ├── main.py             # Cliente LwM2M básico
+│   ├── enhanced_main.py    # Cliente mejorado con integración de detección
+│   ├── config.json         # Configuración del cliente
+│   └── lwm2m_client/       # Módulo del cliente LwM2M
+├── RanokAI/               # Módulos relacionados con IA
+│   ├── api_server.py       # Servidor API REST
+│   ├── nextion_control.py  # Control de pantalla Nextion
+│   ├── tts_engine.py       # Motor de texto a voz
+│   └── whisper_listener.py # Reconocimiento de voz
+├── detecciones.csv        # Logs de eventos de detección
+├── requirements.txt       # Dependencias Python
+└── README.md             # Este archivo
 ```
 
 ## Installation
@@ -40,11 +51,32 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Usage
+## Uso
 
-Run the main detection system:
+### Sistema de Detección
+Ejecutar el sistema principal de detección:
 ```bash
 cd Rostro_Herramientas
+python main.py
+```
+
+### Cliente LwM2M
+Ejecutar el cliente LwM2M básico:
+```bash
+cd "LwM2M Client"
+python main.py
+```
+
+Ejecutar el cliente mejorado con integración de detección:
+```bash
+cd "LwM2M Client"
+python enhanced_main.py
+```
+
+### Sistema RanokAI
+Ejecutar los módulos de IA:
+```bash
+cd RanokAI
 python main.py
 ```
 
@@ -54,19 +86,29 @@ python main.py
 - Camera module or USB camera
 - Minimum 4GB RAM
 
-## Performance Notes
+## Estado del Proyecto
 
-- Uses MediaPipe for efficient face detection
-- Gesture-based triggering reduces CPU usage
-- TensorFlow Lite models recommended for custom tool detection
-- YOLOv5 found to be too resource-intensive for Pi hardware
+✅ **COMPLETADO:**
+- Sistema de detección de rostros y herramientas con MediaPipe
+- Cliente LwM2M Python que reemplaza implementación Java Leshan
+- Sistema RanokAI con API, TTS y reconocimiento de voz
+- Integración completa entre todos los módulos
+- Optimización para hardware Raspberry Pi
+- Documentación completa
 
-## Future Development
+## Notas de Rendimiento
 
-- [ ] Custom TensorFlow Lite model training for tool detection
-- [ ] Enhanced gesture recognition
-- [ ] Real-time data streaming via LWM2M
-- [ ] Mobile app integration
+- Usa MediaPipe para detección eficiente de rostros
+- Activación por gestos reduce uso de CPU
+- Modelos TensorFlow Lite recomendados para detección personalizada de herramientas
+- YOLOv5 encontrado muy intensivo para hardware Pi (incluido pero no recomendado)
+
+## Desarrollo Futuro
+
+- [x] Entrenamiento de modelo TensorFlow Lite personalizado para detección de herramientas
+- [x] Reconocimiento de gestos mejorado
+- [x] Streaming de datos en tiempo real vía LWM2M
+- [ ] Integración con aplicación móvil
 
 ## License
 

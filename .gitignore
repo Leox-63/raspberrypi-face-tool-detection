@@ -34,3 +34,4 @@ models/
 # Logs
 *.log
 logs/
+yolov5/
